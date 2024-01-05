@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Jobs At Mail</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row bg-danger text-light">
+            <div class="col-sm-4">
+                Call Us : +91-94533187978
+            </div>
+            <div class="col-sm-4">
+                Mail Us : email@gmail.com
+            </div>
+            <div class="col-sm-4">
+                Address : Sec-J, Jankipuram, Lucknow
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-1 p-0">
+                <img src="{% static 'images/logo.jpg' %}" width="80%"/>
+            </div>
+            <div class="col-sm-11">
+                <h4>Jobs At Mail</h4>
+                <p>(Jobs At Your Doorsteps)</p>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-12 p-0">
+
+                <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">JAM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Registration
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'jobseekerreg' %}">Jobseeker Registration</a></li>
+            <li><a class="dropdown-item" href="{% url 'employerreg' %}">Employer Registration</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-12 p-0">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/slider_1.jpg' %}" class="d-block w-100"/>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/slider_2.jpg' %}" class="d-block w-100"/>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/slider_3.png' %}" class="d-block w-100"/>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/slider_4.jpg' %}" class="d-block w-100"/>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/slider_5.jpg' %}" class="d-block w-100"/>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/slider_6.jpg' %}" class="d-block w-100"/>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4 border p-0">
+                <div class="bg-danger text-light text-center">
+                    <h4>Notice Board</h4>
+                    <marquee>
+                    {% for n in nw %}
+                        <p>{{n.newstext}}</p>
+                    {% endfor %}
+                    </marquee>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                 {% block body %}
+
+                 {% endblock body %}
+            </div>
+        </div>
+        <div class="row bg-dark py-4">
+            <div class="col-sm-4 text-light text-center">
+                <img src="{% static 'images/logo.jpg' %}" class="w-50"/>
+                <h5>Jobs At Mail</h5>
+            </div>
+            <div class="col-sm-4 text-light text-center">
+                <img src="{% static 'images/logo.jpg' %}" class="w-50"/>
+                <h5>Jobs At Mail</h5>
+            </div>
+            <div class="col-sm-4 text-light text-center">
+                <img src="{% static 'images/logo.jpg' %}" class="w-50"/>
+                <h5>Jobs At Mail</h5>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
